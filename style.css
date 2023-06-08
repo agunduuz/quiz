@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(
+    to right top,
+    #1e3921,
+    #123934,
+    #1e373c,
+    #2d343a,
+    #333333
+  );
+  height: 100vh;
+  color: #000;
+  font-size: 1.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  width: 17rem;
+  margin-top: 20rem;
+}
+
+section.btn_start,
+section.quiz_box,
+section.score_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section.quiz_box.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+section.quiz_box {
+  width: 550px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: all 0.4s ease;
+}
+
+section aside h1.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+section aside div.question_text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+section aside div.question_list {
+  padding: 18px 0;
+}
+section aside div div.option {
+  border: 1px solid #151d3b;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section aside div div.option:hover {
+  color: #112b2c;
+  background-color: #ffd33d;
+}
+section aside div div.option.correct {
+  color: #155724;
+  background-color: #d4edda;
+}
+section aside div div.option.incorrect {
+  color: #721c24;
+  background-color: #f8d7da;
+}
+section aside div div.option.disabled {
+  pointer-events: none;
+}
+section aside div div.option span b {
+  margin-right: 1rem;
+  text-transform: uppercase;
+}
+section aside button.next_btn {
+  opacity: 0;
+  pointer-events: none;
+
+  transform: scale(0.9);
+  transition: all 0.3s ease-in-out;
+}
+section aside button.next_btn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* TIMER */
+section.quiz_box aside.card-header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+section aside.card-header div.timer {
+  display: flex;
+  align-items: center;
+  background-color: #143f68;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 1.5rem;
+}
+section aside div.timer div.time_text {
+  font-size: 1.25rem;
+}
+section aside div.timer div.time_second {
+  background-color: #f0a500;
+  border-radius: 3px;
+  padding: 3px;
+  margin-left: 3px;
+  width: 35px;
+  text-align: center;
+}
+
+section aside.card-header div.time_line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  /* width: 550; */
+  background-color: #f0a500;
+}
+
+/* SCORE BOX */
+section.score_box.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+section.score_box {
+  width: 550px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: all 0.4s ease;
+  background-color: #fff8e6;
+}
+section.score_box aside.icon {
+  font-size: 6rem;
+  color: #f5bc00;
+  margin-bottom: 5px;
+}
+section.score_box aside.score_text {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 415px) {
+  header img {
+    width: 17rem;
+    margin-top: 15rem;
+  }
+
+  section.quiz_box {
+    width: 300px !important;
+  }
+  section aside h1.title {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  section aside div.question_text {
+    font-size: 17px;
+  }
+  section aside.card-header div.time_line {
+    display: none;
+  }
+}
+@media screen and (max-width: 375px) {
+  header img {
+    margin-top: 7rem;
+  }
+}
